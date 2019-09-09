@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%=pagetitle%></title>
+</head>
+
+<body>
+    <h1><% if(updating){ %> Update Post <% } else {%> Create Post <%}%></h1>
+
+    <form action="/<% if (updating) { %>postUpdate<% } else { %>postBlog<% } %>" method="POST">
+        <label for="">Post Name</label>
+        <input type="text" name="name" id="" value="<% if (updating) { %><%=post.name%><% } %>" />
+        <br />
+        <br />
+
+        <label for="">Created by</label>
+        <input type="text" name="admin" value="<% if (updating) { %><%=post.admin%><% } %>" />
+        <br />
+        <br />
+
+        <label for="">Content of the post</label>
+        <textarea name="content" cols="30" rows="10">
+<% if (updating) { %><%=post.content%><% } %>  </textarea>
+        <br />
+        <br />
+        <% if(updating) {%>
+        <input type="hidden" value="<%= post._id%>" name="postId" id="" />
+        <% }%>
+        <button type="submit">
+            <% if(updating) { %>Update Post<% } else { %>Create Post<% } %>
+        </button>
+    </form>
+</body>
+
+</html>

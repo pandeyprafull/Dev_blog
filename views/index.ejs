@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title><%=pagetitle%></title>
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+    <h1>Inside the index page</h1>
+
+
+    <form action="/sortByDate" method="POST">
+      <input type="hidden" name = "date" value="desc">
+      <button type="submit">Sort By Date</button>
+    </form>
+
+   <br><br>
+
+    <form action="/createBlog" method="GET">
+      <button type="submit">Create New Post</button>
+    </form>
+
+    <ol type="1">
+      <% for(let i of blogs){ %>
+      <li>
+        <h1><%=i.name%></h1>
+        <p><%=i.content%></p>
+        <p><%=i.dateTime%></p>
+        <h4><%=i.admin%></h4>
+
+        <button><a href="/getUpdate/<%=i._id%>?update=true">Update</a></button>
+      </li>
+      <% } %>
+    </ol>
+  </body>
+</html>
