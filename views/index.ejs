@@ -11,25 +11,23 @@
   </head>
   <body>
 
-    <%if(blogs) {%>
+    <form action="/createBlog" method="GET">
+      <button type="submit">Create New Post</button>
+    </form>
 
-    <div class = "form">
-      <div class = "form-1">
+    <br>
+    <br>
+
+    <%if(blogs.length > 0) {%>
+
+
         <form action="/sortByDate" method="POST">
         <input type="hidden" name = "date" value="desc">
         <button type="submit">Sort By Date</button>
       </form>
-    </div>
+
 
      <br><br>
-
-      <div class="form-1">
-        <form action="/createBlog" method="GET">
-          <button type="submit">Create New Post</button>
-        </form>
-      </div>
-    </div>
-
     <ol type="1">
       <% for(let i of blogs){ %>
         <li class="box box-1">
@@ -37,7 +35,7 @@
           <hr>
           <p><%=i.content%></p>
           <h4><%=i.dateTime%></h4>
-          <h4><%=i.admin%></h4>
+          <h4>Author:<%=i.admin%></h4>
 
           <button><a href="/getUpdate/<%=i._id%>?update=true">Update</a></button>
         </li>

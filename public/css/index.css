@@ -1,5 +1,7 @@
 body {
-    background: #e2e1e0;
+    background: url(http://thekitemap.com/images/feedback-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
   }
 
@@ -10,7 +12,7 @@ body {
 
 h1{
     font-family: 'Rubik', sans-serif;
-    background: gray;
+    background: #f5a442;
     color: #e2e1e0
 }
 
@@ -18,6 +20,7 @@ p{
     font-size: 20px;
     font-family: 'Rubik', sans-serif;
     font-weight: 20px;
+    color: #bff542;
 
 }
 
@@ -25,16 +28,16 @@ p{
     .box{
         background: #fff;
         border-radius: 2px;
-        display: block;
         display: inline-block;
         height: 300px;
         margin: 1rem;
         position: relative;
         width: 800px;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding: 20px 20px 20px 20px;
+        padding: 20px 20px 100px 20px;
+        background-color:rgba(72,72,72,0.4);
+
     }
 
     .box-1{
@@ -45,3 +48,18 @@ p{
     .box-1:hover {
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
       }
+
+
+      button {
+        border: 1px solid cyan;
+        color: tomato;
+        background-color: cyan;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    button:hover {
+        background-color: tomato;
+        color: cyan;
+
+    }
