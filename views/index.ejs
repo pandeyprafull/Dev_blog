@@ -11,32 +11,40 @@
   </head>
   <body>
 
+    <%if(blogs) {%>
 
-    <form action="/sortByDate" method="POST">
-      <input type="hidden" name = "date" value="desc">
-      <button type="submit">Sort By Date</button>
-    </form>
+    <div class = "form">
+      <div class = "form-1">
+        <form action="/sortByDate" method="POST">
+        <input type="hidden" name = "date" value="desc">
+        <button type="submit">Sort By Date</button>
+      </form>
+    </div>
 
-   <br><br>
+     <br><br>
 
-    <form action="/createBlog" method="GET">
-      <button type="submit">Create New Post</button>
-    </form>
+      <div class="form-1">
+        <form action="/createBlog" method="GET">
+          <button type="submit">Create New Post</button>
+        </form>
+      </div>
+    </div>
 
     <ol type="1">
       <% for(let i of blogs){ %>
-      <div class="container">
         <li class="box box-1">
           <h1><%=i.name%></h1>
           <hr>
           <p><%=i.content%></p>
-          <h5><%=i.dateTime%></h5>
+          <h4><%=i.dateTime%></h4>
           <h4><%=i.admin%></h4>
 
           <button><a href="/getUpdate/<%=i._id%>?update=true">Update</a></button>
         </li>
-      </div>
       <% } %>
     </ol>
+    <% } else {%>
+      <h1>No record exist</h1>
+      <%}%>
   </body>
 </html>

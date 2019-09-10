@@ -3,8 +3,11 @@ const blogSchema = require('../models/schema');
 exports.getHome =  (req, res, next) =>{
       blogSchema.find({}, (err, data) =>{
           if(!err){
+             // const Date = data.dateTime.split(" ").slice(0,4).join(" ");
+              //data.dateTime = Date;
               console.log("data found", data);
               return res.status(200).render('index', { pagetitle: "Index Page" , blogs: data})
+
           }
           console.log("err to find bulk data", err);
       })
