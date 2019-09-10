@@ -11,7 +11,7 @@ exports.getHome =  (req, res, next) =>{
  }
 
  exports.getCreateBlog = (req, res, next)=>{
-    res.status(200).render('edit-blog');
+    res.status(200).render('edit-blog', {pagetitle: "Create Blog", updating: false});
 }
 
 exports.postCreateBlog = (req, res, next)=>{
@@ -23,7 +23,7 @@ exports.postCreateBlog = (req, res, next)=>{
     blogSchema.create({name: postName, admin: adminName, content: contentOfBlog }, (err, data)=>{
       if(!err){
         console.log('data inserted!!!', data)
-        return res.status(201).json({message: 'Data inserted!!!!', result: data})
+        return res.status(201).redirect('/')
       }
       console.log('errror to insert data in Db', err);
       return  res.status(500).json({ message: "error"})

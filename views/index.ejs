@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title><%=pagetitle%></title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css">
+    <title><%=pagetitle%></title>
+
   </head>
   <body>
-    <h1>Inside the index page</h1>
 
 
     <form action="/sortByDate" method="POST">
@@ -24,14 +25,17 @@
 
     <ol type="1">
       <% for(let i of blogs){ %>
-      <li>
-        <h1><%=i.name%></h1>
-        <p><%=i.content%></p>
-        <p><%=i.dateTime%></p>
-        <h4><%=i.admin%></h4>
+      <div class="container">
+        <li class="box box-1">
+          <h1><%=i.name%></h1>
+          <hr>
+          <p><%=i.content%></p>
+          <h5><%=i.dateTime%></h5>
+          <h4><%=i.admin%></h4>
 
-        <button><a href="/getUpdate/<%=i._id%>?update=true">Update</a></button>
-      </li>
+          <button><a href="/getUpdate/<%=i._id%>?update=true">Update</a></button>
+        </li>
+      </div>
       <% } %>
     </ol>
   </body>
